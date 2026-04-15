@@ -55,3 +55,7 @@ estoque-api/
 
 
 
+## Rodar o projeto
+```
+uvicorn app.main:app --reload
+```
