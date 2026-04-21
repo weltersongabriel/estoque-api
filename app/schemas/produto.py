@@ -8,15 +8,14 @@ class ProdutoCreate(BaseModel):
     estoque_min: int
     categoria_id: int
 
-class ProdutoResponsse(BaseModel):
+class ProdutoResponse(BaseModel):
     id: int
     nome: str
     sku: str
-    preco_unitario: float
+    preco_custo: float
     quantidade: int
     estoque_min: int
     categoria_id: int
 
-
-class Config:
-    from_attributes = True
+    class Config:
+        from_attributes = True

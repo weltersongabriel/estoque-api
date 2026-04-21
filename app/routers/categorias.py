@@ -4,11 +4,11 @@ from app.database import get_db
 from app.schemas.categoria import CategoriaCreate, CategoriaResponse
 from app.crud import categoria as crud
 
-router = APIRouter(prefix="/categorais", tags=["Categorias"])
+router = APIRouter(prefix="/categorias", tags=["Categorias"])
 
 @router.get("/", response_model=list[CategoriaResponse])
 def listar_categorias(db: Session = Depends(get_db)):
-    return crud.get_categoria(db)
+    return crud.get_categorias(db)
 
 
 @router.get("/{categoria_id}", response_model=CategoriaResponse)

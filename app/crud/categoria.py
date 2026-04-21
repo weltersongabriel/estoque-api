@@ -3,7 +3,7 @@ from app.models.categoria import Categoria
 from app.schemas.categoria import CategoriaCreate
 
 
-def get_categoria(db: Session):
+def get_categorias(db: Session):
     return db.query(Categoria).all()
 
 def get_categoria(db: Session, categoria_id: int):

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estoque</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">▣</span>
+        <span class="logo-text">estoque</span>
+      </div>
+      <nav>
+        <button class="nav-item active" data-pagina="produtos" onclick="navegarPara('produtos')">
+          <span class="nav-icon">◈</span> Produtos
+        </button>
+        <button class="nav-item" data-pagina="categorias" onclick="navegarPara('categorias')">
+          <span class="nav-icon">◉</span> Categorias
+        </button>
+        <button class="nav-item" data-pagina="movimentacoes" onclick="navegarPara('movimentacoes')">
+          <span class="nav-icon">◎</span> Movimentações
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="status-dot"></span> API conectada
+      </div>
+    </aside>
+
+    <main class="conteudo">
+
+      <!-- PRODUTOS -->
+      <section id="pagina-produtos" class="pagina">
+        <div class="topo">
+          <div>
+            <p class="pagina-label">gestão /</p>
+            <h1>Produtos</h1>
+          </div>
+          <button class="btn-primary" onclick="abrirFormProduto()">+ novo produto</button>
+        </div>
+        <div class="cards-resumo" id="resumo-produtos"></div>
+        <div class="tabela-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>SKU</th>
+                <th>Preço custo</th>
+                <th>Quantidade</th>
+                <th>Mín.</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tabela-produtos">
+              <tr><td colspan="7" class="vazio">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CATEGORIAS -->
+      <section id="pagina-categorias" class="pagina oculto">
+        <div class="topo">
+          <div>
+            <p class="pagina-label">gestão /</p>
+            <h1>Categorias</h1>
+          </div>
+          <button class="btn-primary" onclick="abrirFormCategoria()">+ nova categoria</button>
+        </div>
+        <div class="tabela-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tabela-categorias">
+              <tr><td colspan="4" class="vazio">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- MOVIMENTAÇÕES -->
+      <section id="pagina-movimentacoes" class="pagina oculto">
+        <div class="topo">
+          <div>
+            <p class="pagina-label">gestão /</p>
+            <h1>Movimentações</h1>
+          </div>
+          <button class="btn-primary" onclick="abrirFormMovimentacao()">+ registrar</button>
+        </div>
+        <div class="tabela-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Produto ID</th>
+                <th>Tipo</th>
+                <th>Quantidade</th>
+                <th>Motivo</th>
+                <th>Data</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-movimentacoes">
+              <tr><td colspan="5" class="vazio">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal oculto" onclick="fecharModalFora(event)">
+    <div class="modal-caixa">
+      <div class="modal-topo">
+        <h2 id="modal-titulo"></h2>
+        <button class="modal-fechar" onclick="fecharModal()">✕</button>
+      </div>
+      <div id="modal-corpo"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast oculto"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
